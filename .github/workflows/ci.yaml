@@ -29,5 +29,5 @@ jobs:
 
       - name: Build and Push Spring Boot Backend
         run: |
-          docker build -t docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./HeadlineServer
+          docker build -t shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./HeadlineServer
           docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }}
