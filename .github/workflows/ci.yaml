@@ -45,6 +45,6 @@ jobs:
       - name: Update Helm Chart with new image tag
         run: |
           sed -i "s/tag:.*/tag: ${{env.SHORT_SHA}}/" ./headline-app/values.yaml
-          git add ./helm/values.yaml
+          git add ./headline-app/values.yaml
           git commit -m "Updated image tag to ${{env.SHORT_SHA}}"
           git push
