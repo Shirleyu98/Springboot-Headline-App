@@ -27,6 +27,11 @@ jobs:
           docker build -t shirleycutie/clientforheadlineapp:${{ env.SHORT_SHA }} ./ViteClient
           docker push shirleycutie/clientforheadlineapp:${{ env.SHORT_SHA }}
 
+      - name: Build Spring Boot Application
+        run: |
+          cd HeadlineServer
+          mvn clean package -DskipTests
+
       - name: Build and Push Spring Boot Backend
         run: |
           docker build -t shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./HeadlineServer
