@@ -36,3 +36,15 @@ jobs:
         run: |
           docker build -t shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./HeadlineServer
           docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }}
+
+      - name: Configure Git Author
+        run: |
+          git config --local user.name "testName"
+          git config --local user.email "tribble1998@gmail.com"
+      
+      - name: Update Helm Chart with new image tag
+        run: |
+          sed -i "s/tag:.*/tag: ${{env.SHORT_SHA}}/" ./helm/values.yaml
+          git add ./helm/values.yaml
+          git commit -m "Updated image tag to ${{env.SHORT_SHA}}"
+          git push
