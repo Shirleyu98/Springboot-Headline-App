@@ -24,10 +24,10 @@ jobs:
 
       - name: Build and Push Vite Frontend
         run: |
-          docker build -t shirleycutie/clientforheadlineapp:${{ env.SHORT_SHA }} ./vite-project
+          docker build -t shirleycutie/clientforheadlineapp:${{ env.SHORT_SHA }} ./ViteClient
           docker push your-dockerhub-username/vite-app:latest
 
       - name: Build and Push Spring Boot Backend
         run: |
-          docker build -t docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./springboot-project
+          docker build -t docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./HeadlineServer
           docker push your-dockerhub-username/springboot-app:latest
