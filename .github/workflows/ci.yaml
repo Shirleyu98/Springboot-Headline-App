@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Short SHA
+        run: |
+            echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Build and Push Vite Frontend
+        run: |
+          docker build -t shirleycutie/clientforheadlineapp:${{ env.SHORT_SHA }} ./vite-project
+          docker push your-dockerhub-username/vite-app:latest
+
+      - name: Build and Push Spring Boot Backend
+        run: |
+          docker build -t docker push shirleycutie/serverforheadlineapp:${{ env.SHORT_SHA }} ./springboot-project
+          docker push your-dockerhub-username/springboot-app:latest
