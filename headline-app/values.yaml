@@ -22,3 +22,7 @@ serviceAccount:
 
 autoscaling:
   enable: false
+
+mysql:
+  rootPassword: root
+  database: sm_db
