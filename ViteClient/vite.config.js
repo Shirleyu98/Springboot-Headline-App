@@ -8,6 +8,13 @@ export default defineConfig(() => {
     server: {
       port: 8001,
       open: true,
+      proxy: {
+        '/app-dev': {
+          target: 'http://localhost:8080/',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/app-dev/, '')
+        }
+      }
     },
   };
 });
