@@ -10,7 +10,7 @@ image:
 service:
   frontend:
     type: ClusterIP
-    port: 8001
+    port: 80
   backend:
     type: ClusterIP
     port: 8080
