@@ -1,11 +1,11 @@
 image:
   frontend:
     repository: shirleycutie/clientforheadlineapp
-    tag: latest
+    tag: v-29b4cce
     pullPolicy: IfNotPresent
   backend:
     repository: shirleycutie/serverforheadlineapp
-    tag: latest
+    tag: v-29b4cce
     pullPolicy: IfNotPresent
 service:
   frontend:
