@@ -14,7 +14,7 @@ jobs:
 
       - name: Set Short SHA
         run: |
-            echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+          echo "SHORT_SHA=v-$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
