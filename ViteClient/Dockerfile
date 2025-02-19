@@ -16,5 +16,5 @@ RUN npm run build
 # 使用 nginx 作为服务器
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 8081
+EXPOSE 8001
 CMD ["nginx", "-g", "daemon off;"]
