@@ -7,7 +7,7 @@ import "nprogress/nprogress.css";
 // 配置新建一个 axios 实例
 const service = axios.create({
   // baseURL: "/app-dev/",
-  baseURL: "http://backend:8080/",
+  baseURL: "http://localhost:8080/",
   timeout: 50000,
 });
 
