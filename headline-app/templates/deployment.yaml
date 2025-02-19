@@ -16,7 +16,7 @@ spec:
         - name: frontend
           image: "{{ .Values.image.frontend.repository }}:{{ .Values.image.frontend.tag | toString }}"
           ports:
-            - containerPort: 80
+            - containerPort: 8001
 ---
 apiVersion: apps/v1
 kind: Deployment
