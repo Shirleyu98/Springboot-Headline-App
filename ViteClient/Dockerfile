@@ -1,20 +1,22 @@
-FROM node:18-alpine AS builder
+FROM node:18-alpine
 WORKDIR /app
 
 # 复制 package.json 和 package-lock.json
 COPY package.json package-lock.json ./
 
-# 使用 npm ci 确保安装的是锁定的依赖版本
+# 安装依赖
 RUN npm ci
 
-# 复制代码文件
+# 复制源代码
 COPY . .
 
-# 运行构建
+# 构建项目
 RUN npm run build
 
-# 使用 nginx 作为服务器
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
+# 安装 serve 包来提供静态文件服务
+RUN npm install -g serve
+
 EXPOSE 8001
-CMD ["nginx", "-g", "daemon off;"]
+
+# 使用 serve 启动服务，指定端口 8001
+CMD ["serve", "-s", "dist", "-l", "8001"]
