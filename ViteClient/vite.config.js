@@ -12,7 +12,7 @@ export default defineConfig(
       open: true,
       proxy: {
         '/app-dev': {
-          target: 'http://localhost:8080/',
+          target: 'http://backend:8080/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/app-dev/, '')
         }
