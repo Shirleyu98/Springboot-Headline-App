@@ -7,6 +7,10 @@ The deployment is standardized with **Helm Charts** and continuously delivered v
 
 ---
 
+[[example.png]]
+
+---
+
 ## How to Run This Project
 
 ### 1. Clone the Repository
