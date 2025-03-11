@@ -7,7 +7,8 @@ The deployment is standardized with **Helm Charts** and continuously delivered v
 
 ---
 
-[[example.png]]
+![example](example.png)
+
 
 ---
 
