@@ -1,11 +1,11 @@
 image:
   frontend:
     repository: shirleycutie/clientforheadlineapp
-    tag: v-255da3b
+    tag: v-e8242ea
     pullPolicy: IfNotPresent
   backend:
     repository: shirleycutie/serverforheadlineapp
-    tag: v-255da3b
+    tag: v-e8242ea
     pullPolicy: IfNotPresent
 service:
   frontend:
